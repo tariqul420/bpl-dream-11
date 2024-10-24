@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Banner from "./components/Banner"
 import NavBar from "./components/NavBar"
 import Players from "./components/Players"
@@ -7,6 +7,12 @@ import SelectedPlayers from "./components/SelectedPlayers"
 function App() {
   const [coin, setCoin] = useState(0)
   const [activeBtn, setActiveBtn] = useState('available')
+  const [players, setPlayers] = useState([])
+  useEffect(() => {
+    fetch("./players.json")
+      .then(res => res.json())
+      .then(data => setPlayers(data))
+  }, [])
 
   function handelFreeCredit() {
     setCoin(coin + 60000)
@@ -35,7 +41,7 @@ function App() {
       </div>
 
       {
-        activeBtn === 'available' ? <Players></Players> : <SelectedPlayers></SelectedPlayers>
+        activeBtn === 'available' ? <Players players={players}></Players> : <SelectedPlayers></SelectedPlayers>
       }
     </>
   )
