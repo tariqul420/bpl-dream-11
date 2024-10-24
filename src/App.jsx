@@ -24,7 +24,7 @@ function App() {
       <NavBar coins={coin}></NavBar>
       <Banner handelFreeCredit={handelFreeCredit}></Banner>
 
-      <div className="flex w-11/12 mx-auto justify-between items-center mb-8">
+      <div className="flex max-sm:flex-col max-sm:gap-8 w-11/12 mx-auto justify-between items-center mb-8">
         <div>
           <h2 className="text-color-primary text-3xl font-bold">Available Players</h2>
         </div>

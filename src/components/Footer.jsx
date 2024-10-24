@@ -5,14 +5,14 @@ const Footer = () => {
         <div className="flex flex-col items-center" style={{ background: "rgb(6, 9, 26)" }}>
             <img className="mt-[240px]" src={Logo} alt="" />
 
-            <div className="flex justify-between w-11/12 mx-auto mt-16 mb-16">
+            <div className="flex justify-between w-11/12 mx-auto mt-16 mb-16 max-sm:flex-col max-sm:justify-center">
                 <div className="">
                     <h3 className="text-white font-semibold text-lg">About Us</h3>
                     <p className="text-white/60 w-[18rem]">We are a passionate team dedicated to providing the best services to our customers.</p>
                 </div>
                 <div>
                     <h3 className="text-white font-semibold text-lg">Quick Links</h3>
-                    <ul className="list-disc text-white/60">
+                    <ul className="list-disc text-white/60 max-sm:ml-4">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">About</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <hr className="w-full text-white/5" />
 
-            <p className="text-white/60 my-8">@ Your Company All Rights Reserved.</p>
+            <p className="text-white/60 my-8">@ {new Date().getFullYear()} Your Company All Rights Reserved.</p>
         </div>
     );
 };

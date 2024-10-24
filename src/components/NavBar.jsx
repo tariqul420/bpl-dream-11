@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png"
 import coin from "../assets/coin.png"
+import PropTypes from 'prop-types'
 
 const NavBar = ({coins}) => {
     return (
@@ -8,7 +9,7 @@ const NavBar = ({coins}) => {
                 <img src={logo} alt="" />
             </div>
             <div className="flex gap-12 items-center">
-                <ul className="flex text-color-finely gap-12">
+                <ul className="flex text-color-finely gap-12 max-sm:hidden">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Fixture</a></li>
                     <li><a href="#">Teams</a></li>
@@ -24,4 +25,7 @@ const NavBar = ({coins}) => {
     );
 };
 
+NavBar.propTypes = {
+    coins: PropTypes.number.isRequired
+}
 export default NavBar;

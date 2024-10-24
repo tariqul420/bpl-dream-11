@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 const Players = ({ players }) => {
 
     return (
-        <div className="w-11/12 mx-auto grid grid-cols-3 gap-6 mb-[300px]">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-[300px]">
             {
                 players.map(player => <Player key={player.playerId} player={player}></Player>)
             }
