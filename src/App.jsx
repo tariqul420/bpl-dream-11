@@ -30,12 +30,20 @@ function App() {
         </div>
         <div>
           <button
-            className={`px-7 py-3 rounded-l-xl font-bold border-2 border-solid border-color-finely/10 ${activeBtn === "available" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`} onClick={() => setActiveBtn("available")}>
+            className={`px-7 py-3 rounded-l-xl font-bold ${activeBtn === "available" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`} onClick={() => setActiveBtn("available")} style={{
+              borderLeft: "2px solid #1313131a",
+              borderBottom: "2px solid #1313131a",
+              borderTop: "2px solid #1313131a"
+            }}>
             Available
           </button>
           <button
-            className={`px-7 py-3 rounded-r-xl font-bold border-2 border-solid border-color-finely/10 ${activeBtn === "selected" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`}
-            onClick={() => setActiveBtn("selected")}>
+            className={`px-7 py-3 rounded-r-xl font-bold ${activeBtn === "selected" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`}
+            onClick={() => setActiveBtn("selected")} style={{
+              borderRight: "2px solid #1313131a",
+              borderBottom: "2px solid #1313131a",
+              borderTop: "2px solid #1313131a"
+            }}>
             Selected (0)
           </button>
         </div>
