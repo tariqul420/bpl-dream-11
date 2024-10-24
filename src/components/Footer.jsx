@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <hr className="w-full text-white/5"/>
+            <hr className="w-full text-white/5" />
 
             <p className="text-white/60 my-8">@ Your Company All Rights Reserved.</p>
         </div>

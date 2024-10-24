@@ -2,8 +2,8 @@ import Footer from "./Footer";
 
 const Newsletter = () => {
     return (
-        <div>
-            <div className="w-11/12 flex flex-col items-center mx-auto rounded-2xl py-[88px]" style={{ background: "url(https://i.postimg.cc/3w64jNvT/bg-shadow.png)", backgroundSize: "cover" }}>
+        <div className="relative">
+            <div className="w-9/12 flex flex-col items-center mx-auto rounded-2xl py-[88px] absolute  z-50 top-[0%] left-1/2 outline outline-offset-8 outline-white" style={{ background: "url(https://i.postimg.cc/3w64jNvT/bg-shadow.png), white", backgroundSize: "cover", transform: "translate(-50%, -50%)"}}>
                 <h2 className="text-3xl font-bold text-color-primary">Subscribe to our Newsletter</h2>
                 <p className="text-color-finely font-semibold text-xl mt-4">Get the latest updates and news right in your inbox!</p>
 
