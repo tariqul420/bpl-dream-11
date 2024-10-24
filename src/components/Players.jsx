@@ -34,7 +34,7 @@ function Player({ player }) {
 
             <div className='mt-6 flex items-center justify-between'>
                 <p className='text-color-primary font-semibold text-lg'>Price: {biddingPrice}</p>
-                <button className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10'>{role}</button>
+                <button className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10'>Choose Player</button>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import Banner from "./components/Banner"
 import NavBar from "./components/NavBar"
 import Players from "./components/Players"
 import SelectedPlayers from "./components/SelectedPlayers"
+import Newsletter from "./components/Newsletter"
 
 function App() {
   const [coin, setCoin] = useState(0)
@@ -43,6 +44,8 @@ function App() {
       {
         activeBtn === 'available' ? <Players players={players}></Players> : <SelectedPlayers></SelectedPlayers>
       }
+
+      <Newsletter></Newsletter>
     </>
   )
 }
