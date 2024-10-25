@@ -1,7 +1,6 @@
 const SelectedPlayers = () => {
     return (
-        <div className="w-11/12 mx-auto">
-            This is Selected Players.
+        <div className="w-11/12 mx-auto min-h-96">
         </div>
     );
 };

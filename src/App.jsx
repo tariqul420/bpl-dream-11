@@ -8,6 +8,7 @@ import Newsletter from "./components/Newsletter"
 function App() {
   const [coin, setCoin] = useState(0)
   const [activeBtn, setActiveBtn] = useState('available')
+  const [selectedPlayers, serSelectedPlayers] = useState([])
   const [players, setPlayers] = useState([])
   useEffect(() => {
     fetch("./players.json")
@@ -16,8 +17,13 @@ function App() {
   }, [])
 
   function handelFreeCredit() {
-    setCoin(coin + 60000)
+    setCoin(coin + 100000)
   };
+
+  const handelChoosePlayer = (playerData) => {
+    const choosePlayer = [...selectedPlayers, playerData]
+    serSelectedPlayers(choosePlayer)
+  }
 
   return (
     <>
@@ -44,13 +50,15 @@ function App() {
               borderBottom: "2px solid #1313131a",
               borderTop: "2px solid #1313131a"
             }}>
-            Selected (0)
+            Selected ({selectedPlayers.length})
           </button>
         </div>
       </div>
 
       {
-        activeBtn === 'available' ? <Players players={players}></Players> : <SelectedPlayers></SelectedPlayers>
+        activeBtn === 'available' ? <Players
+          players={players}
+          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers></SelectedPlayers>
       }
 
       <Newsletter></Newsletter>

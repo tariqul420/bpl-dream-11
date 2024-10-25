@@ -1,17 +1,20 @@
 import PropTypes from 'prop-types'
 
-const Players = ({ players }) => {
+const Players = ({ players, handelChoosePlayer }) => {
 
     return (
         <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-[300px]">
             {
-                players.map(player => <Player key={player.playerId} player={player}></Player>)
+                players.map(player => <Player 
+                    key={player.playerId} 
+                    player={player}
+                    handelChoosePlayer={handelChoosePlayer}></Player>)
             }
         </div>
     );
 };
 
-function Player({ player }) {
+function Player({ player , handelChoosePlayer}) {
     const { image, name, country, role, battingType, bowlingType, biddingPrice } = player
     return (
         <div className='p-4 rounded-2xl' style={{ border: "1px solid rgba(19, 19, 19, 0.1)" }}>
@@ -34,7 +37,7 @@ function Player({ player }) {
 
             <div className='mt-6 flex items-center justify-between'>
                 <p className='text-color-primary font-semibold text-lg'>Price: {biddingPrice}</p>
-                <button className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10'>Choose Player</button>
+                <button onClick={() => handelChoosePlayer(player)} className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10'>Choose Player</button>
             </div>
         </div>
     )
@@ -42,9 +45,11 @@ function Player({ player }) {
 
 
 Players.propTypes = {
-    players: PropTypes.object.isRequired
+    players: PropTypes.array.isRequired,
+    handelChoosePlayer: PropTypes.func.isRequired
 }
 Player.propTypes = {
-    player: PropTypes.array.isRequired,
+    player: PropTypes.object.isRequired,
+    handelChoosePlayer: PropTypes.func.isRequired
 }
 export default Players;
