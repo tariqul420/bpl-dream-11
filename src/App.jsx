@@ -21,8 +21,18 @@ function App() {
   };
 
   const handelChoosePlayer = (playerData) => {
-    const choosePlayer = [...selectedPlayers, playerData]
-    serSelectedPlayers(choosePlayer)
+    const isExist = selectedPlayers.find(player => player.playerId === playerData.playerId)
+    if (!isExist) {
+      if (selectedPlayers.length < 6) {
+        const choosePlayer = [...selectedPlayers, playerData]
+        serSelectedPlayers(choosePlayer)
+      }
+      else {
+        alert("You no more Add")
+      }
+    } else {
+      alert("already Added")
+    }
   }
 
   return (
@@ -32,7 +42,9 @@ function App() {
 
       <div className="flex max-sm:flex-col max-sm:gap-8 w-11/12 mx-auto justify-between items-center mb-8">
         <div>
-          <h2 className="text-color-primary text-3xl font-bold">Available Players</h2>
+          <h2 className="text-color-primary text-3xl font-bold">{
+            activeBtn === 'available' ? "Available Players" : `Selected Player (${selectedPlayers.length}/6)`
+          }</h2>
         </div>
         <div>
           <button
@@ -58,7 +70,7 @@ function App() {
       {
         activeBtn === 'available' ? <Players
           players={players}
-          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers></SelectedPlayers>
+          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers selectedPlayers={selectedPlayers}></SelectedPlayers>
       }
 
       <Newsletter></Newsletter>
