@@ -9,9 +9,9 @@ import Newsletter from "./components/Newsletter";
 
 function App() {
   const [coin, setCoin] = useState(0);
-  const [activeBtn, setActiveBtn] = useState('available');
-  const [selectedPlayers, serSelectedPlayers] = useState([]);
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [players, setPlayers] = useState([]);
+  const [showAvailablePlayers, setShowAvailablePlayers] = useState(true);
 
   useEffect(() => {
     fetch("./players.json")
@@ -22,22 +22,23 @@ function App() {
   function handelFreeCredit() {
     setCoin(coin + 2000000);
     toast.success("You received 2,000,000 coins!");
-  };
+  }
 
   const handelChoosePlayer = (playerData) => {
     const isExist = selectedPlayers.find(player => player.playerId === playerData.playerId);
+
     if (!isExist) {
       if (selectedPlayers.length < 6) {
         if (playerData.biddingPrice <= coin) {
           setCoin(coin - playerData.biddingPrice);
           const choosePlayer = [...selectedPlayers, playerData];
-          serSelectedPlayers(choosePlayer);
+          setSelectedPlayers(choosePlayer);
           toast.success(`${playerData.name} has been added!`);
         } else {
           toast.error("Not enough coins.");
         }
       } else {
-        toast.warning("You can't add more players.");
+        toast.warning("Maximum players selected.");
       }
     } else {
       toast.warning("Player already added.");
@@ -46,12 +47,12 @@ function App() {
 
   const handelDelate = (userId) => {
     const remainingPlayer = selectedPlayers.filter(player => player.playerId !== userId);
-    serSelectedPlayers(remainingPlayer);
+    setSelectedPlayers(remainingPlayer);
     toast.info("Player removed.");
   };
 
   const handelAddMore = () => {
-
+    setShowAvailablePlayers(!showAvailablePlayers);
   };
 
   return (
@@ -62,12 +63,13 @@ function App() {
       <div className="flex max-sm:flex-col max-sm:gap-8 w-11/12 mx-auto justify-between items-center mb-8">
         <div>
           <h2 className="text-color-primary text-3xl font-bold">{
-            activeBtn === 'available' ? "Available Players" : `Selected Player (${selectedPlayers.length}/6)`
+            showAvailablePlayers ? "Available Players" : `Selected Player (${selectedPlayers.length}/6)`
           }</h2>
         </div>
         <div>
           <button
-            className={`px-7 py-3 rounded-l-xl font-bold ${activeBtn === "available" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`} onClick={() => setActiveBtn("available")} style={{
+            className={`px-7 py-3 rounded-l-xl font-bold ${showAvailablePlayers ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`}
+            onClick={() => setShowAvailablePlayers(true)} style={{
               borderLeft: "2px solid #1313131a",
               borderBottom: "2px solid #1313131a",
               borderTop: "2px solid #1313131a"
@@ -75,8 +77,8 @@ function App() {
             Available
           </button>
           <button
-            className={`px-7 py-3 rounded-r-xl font-bold ${activeBtn === "selected" ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`}
-            onClick={() => setActiveBtn("selected")} style={{
+            className={`px-7 py-3 rounded-r-xl font-bold ${!showAvailablePlayers ? "bg-btn-primary text-color-primary" : "bg-white text-color-primary"}`}
+            onClick={() => setShowAvailablePlayers(false)} style={{
               borderRight: "2px solid #1313131a",
               borderBottom: "2px solid #1313131a",
               borderTop: "2px solid #1313131a"
@@ -87,17 +89,31 @@ function App() {
       </div>
 
       {
-        activeBtn === 'available' ? <Players
-          players={players}
-          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers
-            handelAddMore={handelAddMore}
-            selectedPlayers={selectedPlayers}
-            handelDelate={handelDelate}></SelectedPlayers>
+        showAvailablePlayers ?
+          <Players players={players} handelChoosePlayer={handelChoosePlayer}></Players>
+          :
+          <SelectedPlayers handelAddMore={handelAddMore} selectedPlayers={selectedPlayers} handelDelate={handelDelate}></SelectedPlayers>
+
       }
+
+      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={handelAddMore}>
+        Toggle Player View
+      </button>
 
       <Newsletter></Newsletter>
 
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        toast appears
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }
