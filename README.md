@@ -21,6 +21,6 @@
 - **Unlimited Claim Coin & Buy Player**
 
 ## Live Link To The Deployed Project
-**Github Repo Link:** https://github.com/programming-hero-web-course2/b10a6-pet-adoption-tariqul420.git
+**Github Repo Link:** https://github.com/tariqul420/ASSIGNMENT-07.git
 
-**Live Site link:** https://phhero-assignment-06.surge.sh
+**Live Site link:** http://bpl-cricket.surge.sh
