@@ -40,6 +40,11 @@ function App() {
     }
   }
 
+  const handelDelate = (userId) => {
+    const remainingPlayer = selectedPlayers.filter(player => player.playerId !== userId)
+    serSelectedPlayers(remainingPlayer)
+  }
+
   return (
     <>
       <NavBar coins={coin}></NavBar>
@@ -75,7 +80,8 @@ function App() {
       {
         activeBtn === 'available' ? <Players
           players={players}
-          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers selectedPlayers={selectedPlayers}></SelectedPlayers>
+          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers selectedPlayers={selectedPlayers}
+            handelDelate={handelDelate}></SelectedPlayers>
       }
 
       <Newsletter></Newsletter>
