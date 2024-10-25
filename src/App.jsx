@@ -93,12 +93,7 @@ function App() {
           <Players players={players} handelChoosePlayer={handelChoosePlayer}></Players>
           :
           <SelectedPlayers handelAddMore={handelAddMore} selectedPlayers={selectedPlayers} handelDelate={handelDelate}></SelectedPlayers>
-
       }
-
-      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={handelAddMore}>
-        Toggle Player View
-      </button>
 
       <Newsletter></Newsletter>
 
