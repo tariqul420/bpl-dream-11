@@ -45,6 +45,9 @@ function App() {
     serSelectedPlayers(remainingPlayer)
   }
 
+  const handelAddMore = () => {
+    console.log('click add more btn');
+  }
   return (
     <>
       <NavBar coins={coin}></NavBar>
@@ -80,7 +83,9 @@ function App() {
       {
         activeBtn === 'available' ? <Players
           players={players}
-          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers selectedPlayers={selectedPlayers}
+          handelChoosePlayer={handelChoosePlayer}></Players> : <SelectedPlayers
+            handelAddMore={handelAddMore}
+            selectedPlayers={selectedPlayers}
             handelDelate={handelDelate}></SelectedPlayers>
       }
 

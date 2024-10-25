@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const SelectedPlayers = ({ selectedPlayers, handelDelate }) => {
+const SelectedPlayers = ({ selectedPlayers, handelDelate,handelAddMore }) => {
     return (
         <div className="w-11/12 mx-auto min-h-96 mb-[300px] flex flex-col gap-8">
             {
@@ -9,6 +9,8 @@ const SelectedPlayers = ({ selectedPlayers, handelDelate }) => {
                     selectedPlayer={selectedPlayer}
                     handelDelate={handelDelate}></SelectedPlayer>)
             }
+
+            <button onClick={handelAddMore} className=" btn text-color-primary font-bold py-[14px] px-5 bg-btn-primary rounded-xl outline outline-offset-4 outline-btn-primary">Add More Player</button>
         </div>
     );
 };
@@ -35,7 +37,8 @@ function SelectedPlayer({ selectedPlayer, handelDelate }) {
 
 SelectedPlayers.propTypes = {
     selectedPlayers: PropTypes.array.isRequired,
-    handelDelate: PropTypes.func.isRequired
+    handelDelate: PropTypes.func.isRequired,
+    handelAddMore: PropTypes.func.isRequired
 }
 SelectedPlayer.propTypes = {
     selectedPlayer: PropTypes.object.isRequired,
