@@ -1,53 +1,59 @@
-import { useEffect, useState } from "react"
-import Banner from "./components/Banner"
-import NavBar from "./components/NavBar"
-import Players from "./components/Players"
-import SelectedPlayers from "./components/SelectedPlayers"
-import Newsletter from "./components/Newsletter"
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Banner from "./components/Banner";
+import NavBar from "./components/NavBar";
+import Players from "./components/Players";
+import SelectedPlayers from "./components/SelectedPlayers";
+import Newsletter from "./components/Newsletter";
 
 function App() {
-  const [coin, setCoin] = useState(0)
-  const [activeBtn, setActiveBtn] = useState('available')
-  const [selectedPlayers, serSelectedPlayers] = useState([])
-  const [players, setPlayers] = useState([])
+  const [coin, setCoin] = useState(0);
+  const [activeBtn, setActiveBtn] = useState('available');
+  const [selectedPlayers, serSelectedPlayers] = useState([]);
+  const [players, setPlayers] = useState([]);
+
   useEffect(() => {
     fetch("./players.json")
       .then(res => res.json())
-      .then(data => setPlayers(data))
-  }, [])
+      .then(data => setPlayers(data));
+  }, []);
 
   function handelFreeCredit() {
-    setCoin(coin + 2000000)
+    setCoin(coin + 2000000);
+    toast.success("You received 2,000,000 coins!");
   };
 
   const handelChoosePlayer = (playerData) => {
-    const isExist = selectedPlayers.find(player => player.playerId === playerData.playerId)
+    const isExist = selectedPlayers.find(player => player.playerId === playerData.playerId);
     if (!isExist) {
       if (selectedPlayers.length < 6) {
-        if (playerData.biddingPrice < coin) {
-          setCoin(coin - playerData.biddingPrice)
-          const choosePlayer = [...selectedPlayers, playerData]
-          serSelectedPlayers(choosePlayer)
+        if (playerData.biddingPrice <= coin) {
+          setCoin(coin - playerData.biddingPrice);
+          const choosePlayer = [...selectedPlayers, playerData];
+          serSelectedPlayers(choosePlayer);
+          toast.success(`${playerData.name} has been added!`);
         } else {
-          alert("your not Amount")
+          toast.error("Not enough coins.");
         }
-      }
-      else {
-        alert("You no more Add")
+      } else {
+        toast.warning("You can't add more players.");
       }
     } else {
-      alert("already Added")
+      toast.warning("Player already added.");
     }
-  }
+  };
 
   const handelDelate = (userId) => {
-    const remainingPlayer = selectedPlayers.filter(player => player.playerId !== userId)
-    serSelectedPlayers(remainingPlayer)
-  }
+    const remainingPlayer = selectedPlayers.filter(player => player.playerId !== userId);
+    serSelectedPlayers(remainingPlayer);
+    toast.info("Player removed.");
+  };
 
   const handelAddMore = () => {
-    console.log('click add more btn');
-  }
+
+  };
+
   return (
     <>
       <NavBar coins={coin}></NavBar>
@@ -90,8 +96,10 @@ function App() {
       }
 
       <Newsletter></Newsletter>
+
+      <ToastContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
