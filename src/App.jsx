@@ -17,15 +17,20 @@ function App() {
   }, [])
 
   function handelFreeCredit() {
-    setCoin(coin + 100000)
+    setCoin(coin + 2000000)
   };
 
   const handelChoosePlayer = (playerData) => {
     const isExist = selectedPlayers.find(player => player.playerId === playerData.playerId)
     if (!isExist) {
       if (selectedPlayers.length < 6) {
-        const choosePlayer = [...selectedPlayers, playerData]
-        serSelectedPlayers(choosePlayer)
+        if (playerData.biddingPrice < coin) {
+          setCoin(coin - playerData.biddingPrice)
+          const choosePlayer = [...selectedPlayers, playerData]
+          serSelectedPlayers(choosePlayer)
+        } else {
+          alert("your not Amount")
+        }
       }
       else {
         alert("You no more Add")
