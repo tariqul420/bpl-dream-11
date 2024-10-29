@@ -1,3 +1,4 @@
+
 import logo from "../assets/logo.png"
 import coin from "../assets/coin.png"
 import PropTypes from 'prop-types'
@@ -13,7 +14,7 @@ const NavBar = ({ coins }) => {
                     <ul className="flex text-color-finely gap-12 max-sm:hidden">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Fixture</a></li>
-                        <li><a href="#">Teams</a></li>
+                        <li><a href="#teams">Teams</a></li>
                         <li><a href="#">Schedules</a></li>
                     </ul>
 

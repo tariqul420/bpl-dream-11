@@ -1,6 +1,7 @@
+
 import PropTypes from 'prop-types'
 
-const SelectedPlayers = ({ selectedPlayers, handelDelate,handelAddMore }) => {
+const SelectedPlayers = ({ selectedPlayers, handelDelate, handelAddMore }) => {
     return (
         <div className="w-11/12 mx-auto min-h-96 mb-[300px] flex flex-col gap-8">
             {
@@ -16,7 +17,7 @@ const SelectedPlayers = ({ selectedPlayers, handelDelate,handelAddMore }) => {
 };
 
 function SelectedPlayer({ selectedPlayer, handelDelate }) {
-    const { image, name, battingType } = selectedPlayer
+    const { image, name, battingType, biddingPrice } = selectedPlayer
     return (
         <div className='flex items-center justify-between p-6 rounded-2xl' style={{ border: "1px solid rgba(19, 19, 19, 0.1)" }}>
             <div className='flex gap-6'>
@@ -26,6 +27,7 @@ function SelectedPlayer({ selectedPlayer, handelDelate }) {
                 <div className='flex flex-col justify-between'>
                     <h2 className='text-color-primary font-bold text-2xl'>{name}</h2>
                     <p className='text-color-finely font-semibold'>{battingType}</p>
+                    <p className='text-color-finely font-semibold'>Price: {biddingPrice}</p>
                 </div>
             </div>
             <div>

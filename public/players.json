@@ -44,7 +44,7 @@
         "name": "Mitchell Starc",
         "country": "Australia",
         "image": "https://i.postimg.cc/BQspkSh3/Mitchell-Starc.jpg",
-        "role": "Bowler",
+        "role": "All-Rounder",
         "battingType": "Left-hand bat",
         "bowlingType": "Left-arm fast",
         "biddingPrice": 1200000
@@ -64,7 +64,7 @@
         "name": "Rashid Khan",
         "country": "Afghanistan",
         "image": "https://i.postimg.cc/W11np9Lf/Rashid-Khan.jpg",
-        "role": "Bowler",
+        "role": "All-Rounder",
         "battingType": "Right-hand bat",
         "bowlingType": "Right-arm legbreak",
         "biddingPrice": 1350000
@@ -118,5 +118,35 @@
         "battingType": "Right-hand bat",
         "bowlingType": "Left-arm fast",
         "biddingPrice": 1100000
+    },
+    {
+        "playerId": 13,
+        "name": "Glenn Maxwell",
+        "country": "Australia",
+        "image": "https://i.postimg.cc/VN9x7NY2/Glenn-Maxwell.jpg",
+        "role": "All-Rounder",
+        "battingType": "Right-hand bat",
+        "bowlingType": "Right-arm offbreak",
+        "biddingPrice": 1550000
+    },
+    {
+        "playerId": 14,
+        "name": "Hardik Pandya",
+        "country": "India",
+        "image": "https://i.postimg.cc/76xpjyhh/Hardik-Pandya.jpg",
+        "role": "All-Rounder",
+        "battingType": "Right-hand bat",
+        "bowlingType": "Right-arm fast-medium",
+        "biddingPrice": 1450000
+    },
+    {
+        "playerId": 15,
+        "name": "Pat Cummins",
+        "country": "Australia",
+        "image": "https://i.postimg.cc/JhWwcXWb/Pat-Cummins.jpg",
+        "role": "Bowler",
+        "battingType": "Right-hand bat",
+        "bowlingType": "Right-arm fast",
+        "biddingPrice": 1500000
     }
 ]

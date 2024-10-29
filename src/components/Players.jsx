@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types'
 
 const Players = ({ players, handelChoosePlayer }) => {
@@ -37,7 +38,7 @@ function Player({ player , handelChoosePlayer}) {
 
             <div className='mt-6 flex items-center justify-between'>
                 <p className='text-color-primary font-semibold text-lg'>Price: {biddingPrice}</p>
-                <button onClick={() => handelChoosePlayer(player)} className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10'>Choose Player</button>
+                <button onClick={() => handelChoosePlayer(player)} className='px-4 py-2 rounded-lg text-color-primary font-semibold text-lg cursor-pointer border-2 border-solid border-color-primary/10 hover:bg-btn-primary transition duration-500 ease-in-out'>Choose Player</button>
             </div>
         </div>
     )

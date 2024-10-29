@@ -1,3 +1,4 @@
+
 import Logo from "../assets/logo-footer.png"
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h3 className="text-white font-semibold text-lg">Quick Links</h3>
-                    <ul className="list-disc text-white/60 max-sm:ml-4">
+                    <ul className="list-inside list-disc text-white/60 max-sm:ml-4">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">About</a></li>
@@ -35,7 +36,7 @@ const Footer = () => {
 
             <hr className="w-full text-white/5" />
 
-            <p className="text-white/60 my-8">@ {new Date().getFullYear()} Your Company All Rights Reserved.</p>
+            <p className="text-white/60 my-8">@ {new Date().getFullYear()} BPL-DREAM 11 All Rights Reserved.</p>
         </div>
     );
 };

@@ -20,8 +20,8 @@ function App() {
   }, []);
 
   function handelFreeCredit() {
-    setCoin(coin + 2000000);
-    toast.success("You received 2,000,000 coins!");
+    setCoin(coin + 5000000);
+    toast.success("You received 5,000,000 coins!");
   }
 
   const handelChoosePlayer = (playerData) => {
@@ -60,7 +60,7 @@ function App() {
       <NavBar coins={coin}></NavBar>
       <Banner handelFreeCredit={handelFreeCredit}></Banner>
 
-      <div className="flex max-sm:flex-col max-sm:gap-8 w-11/12 mx-auto justify-between items-center mb-8">
+      <div className="flex max-sm:flex-col max-sm:gap-8 w-11/12 mx-auto justify-between items-center mb-8" id="teams">
         <div>
           <h2 className="text-color-primary text-3xl font-bold">{
             showAvailablePlayers ? "Available Players" : `Selected Player (${selectedPlayers.length}/6)`
